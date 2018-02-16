@@ -4,6 +4,9 @@
 
 #include <cstdarg>
 
+
+#if SBOX_USE_MPI
+
 #include <mpi.h>
 
 
@@ -115,10 +118,13 @@ public:
 
 
 
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 
 END_SBOX_NS;
 
 
+#endif
 

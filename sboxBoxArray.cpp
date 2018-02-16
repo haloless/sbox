@@ -9,6 +9,11 @@ BoxArray::BoxArray()
 {
 }
 
+BoxArray::BoxArray(IndexType btype)
+	: m_type(btype)
+{
+}
+
 BoxArray::~BoxArray()
 {
 }

@@ -3,10 +3,14 @@
 #include <iostream>
 
 #include "sbox.h"
+#include "sboxRealBox.h"
+#include "sboxIndexType.h"
+#include "sboxIntBox.h"
 #include "sboxParallel.h"
 #include "sboxStructGrid.h"
 
 
+#if 0
 
 int main(int argc, char *argv[]) {
 
@@ -47,6 +51,24 @@ int main(int argc, char *argv[]) {
 
 
 	MPI_Finalize();
+
+	return 0;
+}
+
+#endif
+
+
+
+int main(int argc, char *argv[]) {
+
+	{
+		std::cout << sbox::RealBox::RealBox() << std::endl;
+
+		std::cout << sbox::Box::UnitBox() << std::endl;
+
+		std::cout << sbox::IndexType::FaceType(1) << std::endl;
+	}
+
 
 	return 0;
 }

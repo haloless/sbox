@@ -5,6 +5,7 @@
 #include "sboxIntBox.h"
 //#include "sboxBoxArray.h"
 
+#if SBOX_USE_MPI
 
 BEGIN_SBOX_NS;
 
@@ -76,5 +77,7 @@ public:
 
 
 END_SBOX_NS;
+
+#endif
 
 

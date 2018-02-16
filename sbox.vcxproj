@@ -87,7 +87,6 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(MSMPI_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>msmpi.lib;msmpifec.lib;msmpifmc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -117,20 +116,25 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(MSMPI_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>msmpi.lib;msmpifec.lib;msmpifmc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sboxBoxArray.cpp" />
     <ClCompile Include="sboxBoxManager.cpp" />
+    <ClCompile Include="sboxDimVec.cpp" />
+    <ClCompile Include="sboxIndexType.cpp" />
     <ClCompile Include="sboxIntBox.cpp" />
     <ClCompile Include="sboxParallel.cpp" />
+    <ClCompile Include="sboxRealBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sboxBoxArray.h" />
     <ClInclude Include="sboxBoxManager.h" />
+    <ClInclude Include="sboxDimVec.h" />
+    <ClInclude Include="sboxIndexType.h" />
     <ClInclude Include="sboxIntBox.h" />
+    <ClInclude Include="sboxOrient.h" />
     <ClInclude Include="sboxRealBox.h" />
     <ClInclude Include="sbox.h" />
     <ClInclude Include="sboxParallel.h" />

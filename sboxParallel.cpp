@@ -3,6 +3,8 @@
 #include "sboxIntBox.h"
 
 
+#if SBOX_USE_MPI
+
 BEGIN_SBOX_NS;
 
 
@@ -91,4 +93,8 @@ void MpiComm::syncPrintf(const char fmt[], ...) const {
 
 
 END_SBOX_NS;
+
+
+#endif
+
 

@@ -1,5 +1,6 @@
 #include "sboxBoxManager.h"
 
+#if SBOX_USE_MPI
 
 BEGIN_SBOX_NS;
 
@@ -71,6 +72,8 @@ void BoxManager::addEntry(const Box & box, int proc_id, int box_id)
 
 
 END_SBOX_NS;
+
+#endif
 
 
 

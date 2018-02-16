@@ -3,12 +3,19 @@
 
 #include "sbox.h"
 //#include "sboxParallel.h"
+#include "sboxIndexType.h"
 #include "sboxIntBox.h"
 
 #include <iosfwd>
 
 
 BEGIN_SBOX_NS;
+
+struct IntersectResult
+{
+	int index;
+	Box box;
+};
 
 
 class BoxArray : public Array<Box>
@@ -18,29 +25,29 @@ public:
 
 protected:
 
-	//Array<Box> m_boxes;
+	IndexType m_type;
 
 public:
 
 	BoxArray();
+	BoxArray(IndexType btype);
+
 	~BoxArray();
 
-	//const Array<Box> boxes() const { return m_boxes; }
-
-	//size_t size() const { return m_boxes.size(); }
+	const IndexType& boxIndexType() const { return m_type; }
 
 
-	//auto begin() -> decltype(m_boxes.begin()) { return m_boxes.begin(); }
-	//auto end() -> decltype(m_boxes.end()) { return m_boxes.end(); }
-	//auto begin() const -> decltype(m_boxes.begin()) { return m_boxes.begin(); }
-	//auto end() const-> decltype(m_boxes.end()) { return m_boxes.end(); }
 
-	//const Box& operator[](int i) const { return m_boxes[i]; }
-	//Box& operator[](int i) { return m_boxes[i]; }
-
-	void appendBox(const Box &b) { push_back(b); }
 
 	Box calcBoundBox() const;
+
+	////////////////////////////////////////
+public:
+
+	Array<IntersectResult> intersections(const Box &rhs) const;
+
+
+
 
 };
 

@@ -8,6 +8,8 @@
 
 #include <iostream>
 
+#if SBOX_USE_MPI
+
 BEGIN_SBOX_NS;
 
 
@@ -201,5 +203,10 @@ public:
 
 
 END_SBOX_NS;
+
+#endif
+
+
+
 
 

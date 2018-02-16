@@ -1,8 +1,53 @@
 #include "sboxIntBox.h"
 #include "sboxParallel.h"
 
+#include <iostream>
 
 BEGIN_SBOX_NS;
+
+Box::Box()
+	: m_lo(IntVec::UnitVec())
+	, m_hi(IntVec::ZeroVec())
+{
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+int Box::volume() const {
+	int vol = 1;
+	for (int idim = 0; idim < dimension(); idim++) {
+		vol *= length(idim);
+	}
+	return vol;
+}
+
+int Box::operator[](Orientation face) const
+{
+	int dir = face.dir();
+	return face.isLo() ? m_lo[dir] : m_hi[dir];
+}
+
+bool Box::isSameSize(const Box & rhs) const
+{
+	return length(0) == rhs.length(0)
+		&& length(1) == rhs.length(1)
+		&& length(2) == rhs.length(2);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+const Box & Box::UnitBox()
+{
+	static const Box inst(IntVec::ZeroVec(), IntVec::UnitVec());
+	return inst;
+}
+
+
 
 //void Box::reduceAllMaxBox()
 //{
@@ -23,6 +68,11 @@ BEGIN_SBOX_NS;
 //}
 
 
+std::ostream& operator<<(std::ostream &os, const Box &b) {
+	os << "Box {" << "lo=" << b.lo() << ", hi=" << b.hi() << "}";
+	return os;
+}
 
 
 END_SBOX_NS;
+
